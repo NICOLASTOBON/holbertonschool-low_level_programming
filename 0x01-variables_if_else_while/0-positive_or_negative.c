@@ -1,12 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
 /**
- * main - Entry points
- * more headers goes there
- * betty style doc for function main goes there
- * Return - (0) Success
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
@@ -14,16 +12,17 @@ int main(void)
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-
 	if (n > 0)
-		printf("%d%s\n", n, "is positive");
-
-	else if (n == 0)
-		printf("%d%s\n", n, "is zero");
-
-	else
-		printf("%d%s\n", n, "is negative");
-
+	{
+		printf("%d is positive\n", n);
+	}
+	if (n == 0)
+	{
+		printf("%d is zero\n", n);
+	}
+	if (n < 0)
+	{
+		printf("%d is negative\n", n);
+	}
 	return (0);
 }
-
