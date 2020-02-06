@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
 /**
  * main - Entry points
  * more headers goes there
@@ -14,10 +15,10 @@ int main(void)
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 
-	if n > 0
+	if (n > 0)
 		printf("%d%s\n", n, "is positive");
 
-	else if n == 0
+	else if (n == 0)
 		printf("%d%s\n", n, "is zero");
 
 	else
@@ -25,3 +26,4 @@ int main(void)
 
 	return (0);
 }
+
