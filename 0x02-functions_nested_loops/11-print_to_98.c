@@ -2,7 +2,7 @@
 #include <stdio.h>
 /**
  * print_to_98 - numbers
- *
+ * @n: variable
  * Return:  (0) Successs
  */
 void print_to_98(int n)
