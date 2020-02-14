@@ -6,16 +6,21 @@
  */
 int main(void)
 {
+	int pf;
 	int a = 2;
 	long int b = 612852475143;
 
 	while (b != a)
 	{
 		if (b % a == 0)
+		{
+			pf = a;
 			b = b / a;
+		}
 		else
 			a++;
 	}
-	printf("%d \n", a);
+	pf = a;
+	printf("%d \n", pf);
 	return (0);
 }
