@@ -22,6 +22,11 @@ int main(int argc, char *argv[])
 				printf("Error\n");
 				return (1);
 			}
+			else if (a < 0)
+			{
+				printf("Error\n");
+				return (1);
+			}
 			else
 				num += a;
 		}
