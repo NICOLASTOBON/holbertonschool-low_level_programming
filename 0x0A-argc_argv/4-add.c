@@ -14,10 +14,7 @@ int _ispositive(char *c)
 	for (i = 0; c[i] != '\0'; i++)
 	{
 		if (isdigit(c[i]) == 0)
-		{
-			printf("value[%d] = %d\n", i, c[i]);
 			return (1);
-		}
 	}
 	return (0);
 }
@@ -46,8 +43,6 @@ int main(int argc, char *argv[])
 		printf("%d\n", num);
 	}
 	else
-	{
 		printf("0\n");
-	}
 	return (0);
 }
