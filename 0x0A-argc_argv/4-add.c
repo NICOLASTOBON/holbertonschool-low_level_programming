@@ -1,6 +1,26 @@
 #include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+/**
+ * _ispositive - Entry points
+ * @c: is a parameter
+ * Return: Always (0) Success
+ */
+int _ispositive(char *c)
+{
+	int i;
+
+	for (i = 0; c[i] != '\0'; i++)
+	{
+		if (isdigit(c[i]) == 0)
+		{
+			printf("value[%d] = %d\n", i, c[i]);
+			return (1);
+		}
+	}
+	return (0);
+}
 /**
  * main - Entry points
  * @argc: is a parameter
@@ -9,26 +29,19 @@
  */
 int main(int argc, char *argv[])
 {
-	int i, a, num = 0;
+	int i, num = 0;
 
 	if (argc > 2)
 	{
 		for (i = 1; i < argc; i++)
 		{
-			a = atoi(argv[i]);
-
-			if (a == 0)
-			{
-				printf("Error\n");
-				return (1);
-			}
-			else if (a < 0)
-			{
-				printf("Error\n");
-				return (1);
-			}
+			if (_ispositive(argv[i]) == 0)
+				num += atoi(argv[i]);
 			else
-				num += a;
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
 		printf("%d\n", num);
 	}
