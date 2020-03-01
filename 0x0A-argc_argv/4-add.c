@@ -28,6 +28,9 @@ int main(int argc, char *argv[])
 		printf("%d\n", num);
 	}
 	else
+	{
 		printf("0\n");
+		return (1);
+	}
 	return (0);
 }
