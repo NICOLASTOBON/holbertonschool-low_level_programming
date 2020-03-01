@@ -9,16 +9,21 @@
  */
 int main(int argc, char *argv[])
 {
+	int i, num = 1;
+
 	if (argc - 1 == 0)
 	{
-		printf("Error\n");
+		printf("%s\n", "Error");
 	}
 	else if (argc > 3)
 	{
-		printf("Error\n");
+		printf("%s\n", "Error");
 		return (1);
 	}
 	else
+	{
 		printf("%d\n", atoi(argv[1]) * atoi(argv[2]));
+	}
+		
 	return (0);
 }
