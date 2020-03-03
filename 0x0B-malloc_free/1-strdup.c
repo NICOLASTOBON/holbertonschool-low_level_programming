@@ -9,7 +9,8 @@ char *_strdup(char *str)
 {
 	int i, j;
 	char *dest;
-
+	if (str == NULL)
+		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
 		;
 
