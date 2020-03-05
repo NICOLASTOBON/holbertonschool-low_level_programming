@@ -1,4 +1,7 @@
 #include "holberton.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 /**
  * _memset - function that fills memory with a constant byte.
  * @s: is a parameter
