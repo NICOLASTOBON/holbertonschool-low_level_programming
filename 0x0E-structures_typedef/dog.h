@@ -7,13 +7,11 @@
  * @age: is a parameter
  * @owner: is a parameter
  */
-struct dog
+typedef struct
 {
 	char *name;
 	float age;
 	char *owner;
-};
-void init_dog(struct dog *d, char *name, float age, char *owner);
-void print_dog(struct dog *d);
+}dog_t;
 
 #endif
