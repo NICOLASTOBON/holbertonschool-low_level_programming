@@ -1,7 +1,37 @@
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include "dog.h"
+/**
+* _strlen - function that calculates lenght of a string
+* @str: string
+* Return: the size  of the string
+*/
+int _strlen(char *str)
+{
+	int i = 0;
+
+	while (*str++)
+	{
+		i++;
+	}
+return (i);
+}
+/**
+**_strcpy-function that copy an array
+*@dest: variable that copy the array
+*@src: array to copy
+*Return: the array copied
+*/
+char *_strcpy(char *dest, char *src)
+{
+	int i;
+
+	for (i = 0; src[i] != '\0'; i++)
+	{
+		dest[i] = src[i];
+	}
+	dest[i] = '\0';
+	return (dest);
+}
 /**
  * new_dog - function that creates a new dog.
  * @name: is a parameter
@@ -15,8 +45,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 	char *new_name, *new_owner;
 	int i, j;
 
-	i = strlen(name);
-	j = strlen(owner);
+	i = _strlen(name);
+	j = _strlen(owner);
 
 	new_name = malloc(sizeof(i + 1));
 	if (new_name == NULL)
@@ -26,13 +56,18 @@ dog_t *new_dog(char *name, float age, char *owner)
 	new_owner = malloc(sizeof(j + 1));
 	if (new_owner == NULL)
 	{
+		free(new_name);
 		return (NULL);
 	}
-	strcpy(new_name, name);
-	strcpy(new_owner, owner);
+	_strcpy(new_name, name);
+	_strcpy(new_owner, owner);
 	new = malloc(sizeof(dog_t));
 	if (new == NULL)
+	{
+		free(new_name);
+		free(new_owner);
 		return (NULL);
+	}
 	new->name = new_name;
 	new->age = age;
 	new->owner = new_owner;
