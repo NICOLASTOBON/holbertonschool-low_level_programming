@@ -12,7 +12,10 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 	va_start(list, n);
 
-	for (i = 0; i < n && separator != NULL; i++)
+	if (separator == NULL)
+		separator = "";
+
+	for (i = 0; i < n; i++)
 	{
 		printf("%d", va_arg(list, int));
 		if (n != i + 1)
