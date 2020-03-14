@@ -12,8 +12,12 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	char *ptr;
 
 	va_start(list, n);
+	if (separator == NULL)
+	{
+		separator = "";
+	}
 
-	for (i = 0; i < n && separator != NULL; i++)
+	for (i = 0; i < n; i++)
 	{
 		ptr = va_arg(list, char *);
 
