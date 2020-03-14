@@ -21,10 +21,13 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	{
 		ptr = va_arg(list, char *);
 
-		printf("%s", ptr);
 		if (ptr == NULL)
 		{
 			printf("(nil)");
+		}
+		else
+		{
+			printf("%s", ptr);
 		}
 		if (n != i + 1)
 		{
