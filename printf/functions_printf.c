@@ -26,6 +26,30 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 /**
+ * print_function - function print
+ * @format: is a parameter
+ * @formato: is a parameter
+ * Return: length of string
+ */
+int print_func(const char *format, va_list formato)
+{
+	argum fm[] = {
+		{"c", print_c},
+		{"s", print_s},
+		//{'%', print_c},//
+	};
+	int i;
+
+	for(i = 0; i < 2; i++)
+	{
+		if (format[i] == *fm[i].op)
+		{
+			fm[i].f(formato);
+		}
+	}
+	return (0);
+}
+/**
  * print_c - function print caracter
  * @c: is a parameter
  * Return: length of string
@@ -59,7 +83,3 @@ int print_s(va_list formato)
  * @p: is a parameter
  * Return: length of string
  */
-void print_p(va_list formato)
-{
-	
-}
