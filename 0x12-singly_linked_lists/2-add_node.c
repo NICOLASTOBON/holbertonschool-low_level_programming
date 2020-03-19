@@ -41,7 +41,7 @@ list_t *add_node(list_t **head, const char *str)
 {
 	list_t *new;
 
-	new = createNodo(str, strlen(str));
+	new = createNodo(str, _strlen(str));
 
 	new->next = *head;
 	*head = new;
