@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * first - unction that prints
+ * first - function that prints
  */
 void first(void) __attribute__ ((constructor));
 
