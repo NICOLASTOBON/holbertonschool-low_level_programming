@@ -17,7 +17,7 @@ int main(void)
  */
 void print_fibonacci2(void)
 {
-	long i, num1 = 1, num2 = 0, tmp = 0, sum = 0;
+	long i, num1 = 0, num2 = 1, tmp = 0, sum = 0;
 
 	for (i = 0; i < 33; i++)
 	{
