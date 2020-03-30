@@ -6,16 +6,15 @@
  */
 int main(void)
 {
-	long int num = 612852475143, i;
+	long i, num, aux;
 
+	num = 612852475143;
 	for (i = 2; i <= num; i++)
 	{
-		if ((num % i) == 0)
-		{
-			if (num != i)
-				num /= i;
-			else
-				printf("%ld\n", i);
-		}
+		aux = i;
+		if ((num % aux) == 0)
+			num /= aux;
 	}
+	printf("%ld\n", aux);
+	return (0);
 }
