@@ -25,14 +25,17 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 	while ((rf = read(from_d, buff, BUFSIZ)) > 0)
+	{
 		wf = write(to_d, buff, rf);
+		if (wf == -1)
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+
+	}
 	if (rf == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	if (wf == -1)
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 	cf = close(from_d);
 	if (cf == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d", from_d), exit(100);
