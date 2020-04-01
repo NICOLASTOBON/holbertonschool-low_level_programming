@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	while ((rd = read(file_from, buf, _BUSIZE)) > 0)
 	{
 		wd = write(file_to, buf, rd);
-		if (wd == -1)
+		if ((wd != rd) || (wd < 0))
 			dprintf(STDERR_FILENO, "Error: Can't write to %s", argv[2]), exit(99);
 	}
 	if (rd == -1)
