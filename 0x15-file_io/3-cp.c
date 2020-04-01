@@ -9,7 +9,8 @@
  */
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, rd, wd, rclose_from, rclose_to, buf[_BUSIZE];
+	int file_from, file_to, rd, wd, rclose_from, rclose_to;
+	char buf[_BUSIZE];
 
 	if (argc != 3)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
