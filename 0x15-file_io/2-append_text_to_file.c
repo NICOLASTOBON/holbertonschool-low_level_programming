@@ -1,7 +1,6 @@
 #include "holberton.h"
-/* PROTOTYPE */
+/* Prototypes */
 int _strlen(char *s);
-
 /**
  * append_text_to_file - function that appends text at the end of a file.
  * @filename: is a parameter
@@ -15,15 +14,10 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (filename == NULL)
 		return (-1);
 	fd = open(filename, O_RDWR | O_APPEND);
-	if (fd == -1)
-		return (-1);
-
 	if (text_content != NULL)
-	{
 		wd = write(fd, text_content, _strlen(text_content));
-		if (wd == -1)
-			return (-1);
-	}
+	if (fd == -1 || wd == -1)
+		return (-1);
 	close(fd);
 	return (1);
 }

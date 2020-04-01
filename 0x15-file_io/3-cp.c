@@ -1,46 +1,43 @@
 #include "holberton.h"
-#define BUFFSIZE 1204
-
 /**
  * main - cps contents of one file to another
- * @ac: arguement count
- * @av: arguement list: file names
+ * @argc: arguement count
+ * @argv: arguement list: file names
  * Return: 0;
  */
-
-int main(int ac, char **av)
+int main(int argc, char *argv[])
 {
-	int file_from, file_to;
-	int _in, _out;
-	char buff[BUFFSIZE];
-	mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
+	int from_d, to_d, wf, rf, cf, ct;
+	char buff[BUSIZE];
 
-	if (ac != 3)
+	if (argc != 3)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
-	file_from = open(av[1], O_RDONLY);
-	if (file_from == -1)
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]), exit(98);
-	file_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
-	if (file_to == -1)
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
-	_in = _out = 1;
-	while (_in)
+	from_d = open(argv[1], O_RDONLY);
+	if (from_d == -1)
 	{
-		_in = read(file_from, buff, BUFFSIZE);
-		if (_in == -1)
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]), exit(98);
-		if (_in > 0)
-		{
-			_out = write(file_to, buff, _in);
-			if (_out == -1)
-				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
-		}
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
 	}
-	_out = close(file_from);
-	if (_out == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from), exit(100);
-	_out = close(file_to);
-	if (_out == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to), exit(100);
+	to_d = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (to_d == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
+	}
+	while ((rf = read(from_d, buff, BUFSIZ)) > 0)
+		wf = write(to_d, buff, rf);
+	if (rf == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	if (wf == -1)
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+	cf = close(from_d);
+	if (cf == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", from_d), exit(100);
+	ct = close(to_d);
+	if (ct == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", to_d), exit(100);
 	return (0);
 }
