@@ -1,4 +1,6 @@
 #include "holberton.h"
+#define _BUSIZE 1024
+
 /**
  * main - Entry point
  * @argc: is a parameter
