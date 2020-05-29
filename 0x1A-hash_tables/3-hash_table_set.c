@@ -8,8 +8,8 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int idx;
 	hash_node_t *current, *new;
+	unsigned long int idx;
 
 	if (ht == NULL || strcmp(key, "") == 0 || key == NULL || value == NULL)
 		return (0);
