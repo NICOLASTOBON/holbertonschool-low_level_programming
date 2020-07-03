@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+""" module """
 
 def island_perimeter(grid):
     """ Island perimeter """
