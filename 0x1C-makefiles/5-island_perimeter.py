@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ module """
 
+
 def island_perimeter(grid):
     """ Island perimeter """
     value = 0
@@ -12,5 +13,5 @@ def island_perimeter(grid):
                     value -= 1
                 if j > 0 and grid[i][j - 1] == 1:
                     value -= 1
-  
+
     return value * 2
