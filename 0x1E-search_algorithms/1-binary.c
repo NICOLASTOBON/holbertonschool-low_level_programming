@@ -49,8 +49,7 @@ int bn_search(int *array, size_t left, size_t right, int value)
  */
 int binary_search(int *array, size_t size, int value)
 {
-	int num;
-
-	num = bn_search(array, 0, size - 1, value);
-	return (num);
+	if (!array)
+		return (-1);
+	return (bn_search(array, 0, size - 1, value));
 }
