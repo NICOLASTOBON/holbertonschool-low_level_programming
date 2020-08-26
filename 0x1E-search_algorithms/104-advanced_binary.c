@@ -34,7 +34,7 @@ int bn_search(int *array, size_t left, size_t right, int value)
 		if (array[mid] == value && array[mid - 1] != value)
 			return (mid);
 		else if (array[mid] >= value)
-			return (bn_search(array, left, mid - 1, value));
+			return (bn_search(array, left, mid, value));
 		else
 			return (bn_search(array, mid + 1, right, value));
 	}
