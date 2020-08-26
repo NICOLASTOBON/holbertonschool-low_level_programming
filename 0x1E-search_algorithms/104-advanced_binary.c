@@ -41,7 +41,7 @@ int bn_search(int *array, size_t left, size_t right, int value)
 	return (-1);
 }
 /**
- * binary_search - searching
+ * advanced_binary - searching
  * @array: is a pointer to the first element to the array
  * @size: number of elements in array
  * @value: is the valor to search
