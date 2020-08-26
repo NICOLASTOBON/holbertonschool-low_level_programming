@@ -31,9 +31,9 @@ int bn_search(int *array, size_t left, size_t right, int value)
 		int mid = (left + right) / 2;
 
 	    print_array(array, left, right);
-		if (array[mid] == value)
+		if (array[mid] == value && array[mid - 1] != value)
 			return (mid);
-		else if (array[mid] > value)
+		else if (array[mid] >= value)
 			return (bn_search(array, left, mid - 1, value));
 		else
 			return (bn_search(array, mid + 1, right, value));
